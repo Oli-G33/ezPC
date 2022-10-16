@@ -3,6 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import './Navbar.scss';
 import { FaShoppingCart } from 'react-icons/fa';
 import { AiFillDelete } from 'react-icons/ai';
+import { GrLogout } from 'react-icons/gr';
+
 import AuthenticationContext from '../context/authentication';
 import { signOutUser } from './../services/authentication';
 import { CartState } from '../context/CartContext';
@@ -39,7 +41,7 @@ const Header = () => {
           {(user && (
             <>
               <Link to="/">{user.firstName}'s Profile</Link>
-              <button onClick={handleSignOut}>Sign Out</button>
+              <GrLogout onClick={handleSignOut}>Sign Out</GrLogout>
             </>
           )) || (
             <>
@@ -47,7 +49,7 @@ const Header = () => {
               <Link to="/register">Register</Link>
             </>
           )}
-          <Dropdown alignRight>
+          <Dropdown>
             <Dropdown.Toggle variant="success">
               <FaShoppingCart color="white" fontSize="25px" />
               <Badge>{cart.length}</Badge>
@@ -57,7 +59,7 @@ const Header = () => {
               {cart.length > 0 ? (
                 <>
                   {cart.map(product => (
-                    <span className="cartitem" key={product.id}>
+                    <span className="cartitem" key={product._id}>
                       <img
                         src={product.img}
                         className="cartItemImg"
@@ -80,7 +82,7 @@ const Header = () => {
                     </span>
                   ))}
                   <Link to="/cart">
-                    <Button style={{ width: '95%', margin: '0 10px' }}>
+                    <Button style={{ width: '85%', margin: '0 10px' }}>
                       Go To Cart
                     </Button>
                   </Link>

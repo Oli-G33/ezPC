@@ -1,0 +1,99 @@
+import { useContext } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import './Navbar.scss';
+import { FaShoppingCart } from 'react-icons/fa';
+import { AiFillDelete } from 'react-icons/ai';
+import AuthenticationContext from '../context/authentication';
+import { signOutUser } from './../services/authentication';
+import { CartState } from '../context/CartContext';
+import {
+  Badge,
+  Button,
+  Container,
+  Dropdown,
+  FormControl,
+  Nav,
+  Navbar
+} from 'react-bootstrap';
+
+const Header = () => {
+  const { user, setUser } = useContext(AuthenticationContext);
+
+  const {
+    state: { cart },
+    dispatch,
+    productDispatch
+  } = CartState();
+
+  const handleSignOut = () => {
+    signOutUser().then(() => {
+      setUser(null);
+    });
+  };
+
+  return (
+    <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
+      <Container>
+        <Nav>
+          <Link to="/">Home</Link>
+          {(user && (
+            <>
+              <Link to="/">{user.firstName}'s Profile</Link>
+              <button onClick={handleSignOut}>Sign Out</button>
+            </>
+          )) || (
+            <>
+              <Link to="/log-in">Log In</Link>
+              <Link to="/register">Register</Link>
+            </>
+          )}
+          <Dropdown alignRight>
+            <Dropdown.Toggle variant="success">
+              <FaShoppingCart color="white" fontSize="25px" />
+              <Badge>{cart.length}</Badge>
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu style={{ minWidth: 370 }}>
+              {cart.length > 0 ? (
+                <>
+                  {cart.map(product => (
+                    <span className="cartitem" key={product.id}>
+                      <img
+                        src={product.img}
+                        className="cartItemImg"
+                        alt={product.name}
+                      />
+                      <div className="cartItemDetail">
+                        <span>{product.name}</span>
+                        <span>{product.price}</span>
+                      </div>
+                      <AiFillDelete
+                        fontSize="20px"
+                        style={{ cursor: 'pointer' }}
+                        onClick={() =>
+                          dispatch({
+                            type: 'REMOVE_FROM_CART',
+                            payload: product
+                          })
+                        }
+                      />
+                    </span>
+                  ))}
+                  <Link to="/cart">
+                    <Button style={{ width: '95%', margin: '0 10px' }}>
+                      Go To Cart
+                    </Button>
+                  </Link>
+                </>
+              ) : (
+                <span style={{ padding: 10 }}>Cart is Empty!</span>
+              )}
+            </Dropdown.Menu>
+          </Dropdown>
+        </Nav>
+      </Container>
+    </Navbar>
+  );
+};
+
+export default Header;

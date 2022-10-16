@@ -49,6 +49,24 @@ const Header = () => {
               <Link to="/register">Register</Link>
             </>
           )}
+
+          {useLocation().pathname.split('/')[1] !== 'cart' && (
+            <Navbar.Text className="search">
+              <FormControl
+                style={{ width: 500 }}
+                type="search"
+                placeholder="Search a product..."
+                className="m-auto"
+                aria-label="Search"
+                onChange={e => {
+                  productDispatch({
+                    type: 'FILTER_BY_SEARCH',
+                    payload: e.target.value
+                  });
+                }}
+              />
+            </Navbar.Text>
+          )}
           <Dropdown>
             <Dropdown.Toggle variant="success">
               <FaShoppingCart color="white" fontSize="25px" />

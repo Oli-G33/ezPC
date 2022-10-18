@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { CartState } from '../../context/CartContext';
+import { CartState } from '../context/CartContext';
 import { Button, Col, Form, Image, ListGroup, Row } from 'react-bootstrap';
-import Rating from '../../components/Rating';
+import Rating from '../components/Rating';
 import { AiFillDelete } from 'react-icons/ai';
 
 const CartPage = () => {
@@ -20,7 +20,7 @@ const CartPage = () => {
 
   return (
     <div className="home">
-      CartPage
+      <h3>Purchase Summary:</h3>
       <div className="productContainer">
         <ListGroup>
           {cart.map(product => (

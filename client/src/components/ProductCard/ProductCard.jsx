@@ -9,6 +9,12 @@ const ProductCard = ({ product }) => {
     dispatch
   } = CartState();
 
+  const formatPrice = price =>
+    new Intl.NumberFormat('en-DE', {
+      style: 'currency',
+      currency: 'EUR'
+    }).format(price);
+
   return (
     <div className="products">
       <Card>
@@ -22,7 +28,7 @@ const ProductCard = ({ product }) => {
       <Card.Body>
         <Card.Title>{product.name}</Card.Title>
         <Card.Text>
-          {product.price}
+          {formatPrice(product.price)}
           <br />
           Available: {product.inStock}
         </Card.Text>

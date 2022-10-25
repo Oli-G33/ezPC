@@ -13,6 +13,8 @@ const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js')
 const baseRouter = require('./routes/base');
 const authenticationRouter = require('./routes/authentication');
 const productRouter = require('./routes/products');
+require('dotenv').config();
+const stripe = require('stripe')(process.env.STRIPE_SECRET);
 
 const app = express();
 
@@ -26,6 +28,7 @@ app.use(
     credentials: true
   })
 );
+app.use(express.static('public'));
 app.use(express.json());
 app.use(
   expressSession({
@@ -48,6 +51,23 @@ app.use(
 );
 app.use(basicAuthenticationDeserializer);
 app.use(bindUserToViewLocals);
+
+// app.post('/create-payment-intent', async (req, res) => {
+//   const { items } = req.body;
+
+//   // Create a PaymentIntent with the order amount and currency
+//   const paymentIntent = await stripe.paymentIntents.create({
+//     amount: 500,
+//     currency: 'eur',
+//     automatic_payment_methods: {
+//       enabled: true
+//     }
+//   });
+
+//   res.send({
+//     clientSecret: paymentIntent.client_secret
+//   });
+// });
 
 app.use('/', baseRouter);
 app.use('/authentication', authenticationRouter);

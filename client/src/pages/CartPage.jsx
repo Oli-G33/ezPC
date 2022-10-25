@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { CartState } from '../../context/CartContext';
+import { CartState } from '../context/CartContext';
 import { Button, Col, Form, Image, ListGroup, Row } from 'react-bootstrap';
-import Rating from '../../components/Rating';
+import Rating from '../components/Rating';
 import { AiFillDelete } from 'react-icons/ai';
 
 const CartPage = () => {
@@ -18,9 +18,15 @@ const CartPage = () => {
     );
   }, [cart]);
 
+  const formatPrice = price =>
+    new Intl.NumberFormat('en-DE', {
+      style: 'currency',
+      currency: 'EUR'
+    }).format(price);
+
   return (
     <div className="home">
-      CartPage
+      <h3>Purchase Summary:</h3>
       <div className="productContainer">
         <ListGroup>
           {cart.map(product => (
@@ -34,10 +40,11 @@ const CartPage = () => {
                 />
                 <Col></Col>
                 <Col md={2}>{product.name}</Col>
-                <Col md={2}>{product.price}</Col>
+                <Col md={2}>{formatPrice(product.price)}</Col>
                 <Col md={2}>
                   <Rating rating={product.rating} />
                 </Col>
+
                 <Col>
                   <Form.Control
                     as="select"
@@ -71,7 +78,9 @@ const CartPage = () => {
       </div>
       <div className="filters summary">
         <span className="title">Items: {cart.length}</span>
-        <span style={{ fontWeight: 700, fontSize: 20 }}>Total: €{total}</span>
+        <span style={{ fontWeight: 700, fontSize: 20 }}>
+          Total: {formatPrice(total)}
+        </span>
       </div>
     </div>
   );

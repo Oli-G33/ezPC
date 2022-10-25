@@ -52,22 +52,22 @@ app.use(
 app.use(basicAuthenticationDeserializer);
 app.use(bindUserToViewLocals);
 
-// app.post('/create-payment-intent', async (req, res) => {
-//   const { items } = req.body;
+app.post('/create-payment-intent', async (req, res) => {
+  const { items } = req.body;
 
-//   // Create a PaymentIntent with the order amount and currency
-//   const paymentIntent = await stripe.paymentIntents.create({
-//     amount: 500,
-//     currency: 'eur',
-//     automatic_payment_methods: {
-//       enabled: true
-//     }
-//   });
+  // Create a PaymentIntent with the order amount and currency
+  const paymentIntent = await stripe.paymentIntents.create({
+    amount: 500,
+    currency: 'eur',
+    automatic_payment_methods: {
+      enabled: true
+    }
+  });
 
-//   res.send({
-//     clientSecret: paymentIntent.client_secret
-//   });
-// });
+  res.send({
+    clientSecret: paymentIntent.client_secret
+  });
+});
 
 app.use('/', baseRouter);
 app.use('/authentication', authenticationRouter);

@@ -53,7 +53,7 @@ const Header = () => {
           {useLocation().pathname.split('/')[1] !== 'cart' && (
             <Navbar.Text className="search">
               <FormControl
-                style={{ width: 500 }}
+                style={{ width: 300 }}
                 type="search"
                 placeholder="Search a product..."
                 className="m-auto"
@@ -68,7 +68,7 @@ const Header = () => {
             </Navbar.Text>
           )}
           <Dropdown>
-            <Dropdown.Toggle variant="success">
+            <Dropdown.Toggle variant="success" className="toggle">
               <FaShoppingCart color="white" fontSize="25px" />
               <Badge>{cart.length}</Badge>
             </Dropdown.Toggle>

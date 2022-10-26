@@ -8,7 +8,8 @@ import LogInPage from './pages/LogInPage';
 import Navbar from './components/Navbar';
 import AuthenticationContext from './context/authentication';
 import { loadUserInformation } from './services/authentication';
-import CartPage from './pages/HomePage/CartPage';
+import CartPage from './pages/CartPage';
+import CheckoutPage from './pages/CheckoutPage';
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -28,6 +29,7 @@ const App = () => {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/log-in" element={<LogInPage />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
         </Routes>
       </BrowserRouter>
     </AuthenticationContext.Provider>

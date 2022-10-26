@@ -2,6 +2,8 @@ import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AuthenticationContext from '../context/authentication';
 import { logInUser } from '../services/authentication';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 const LogInPage = () => {
   const [email, setEmail] = useState('');
@@ -20,29 +22,33 @@ const LogInPage = () => {
 
   return (
     <div>
-      <form onSubmit={handleLogIn}>
-        <label htmlFor="input-email">Email</label>
-        <input
-          id="input-email"
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={event => setEmail(event.target.value)}
-          autoComplete="off"
-        />
+      <Form onSubmit={handleLogIn}>
+        <Form.Group className="mb-3" controlId="input-email">
+          <Form.Label htmlFor="input-email">Email</Form.Label>
+          <Form.Control
+            id="input-email"
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={event => setEmail(event.target.value)}
+          />
+        </Form.Group>
 
-        <label htmlFor="input-password">Password</label>
-        <input
-          id="input-password"
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={event => setPassword(event.target.value)}
-          autoComplete="off"
-        />
+        <Form.Group className="mb-3" controlId="input-password">
+          <Form.Label htmlFor="input-password">Password</Form.Label>
+          <Form.Control
+            id="input-password"
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={event => setPassword(event.target.value)}
+          />
+        </Form.Group>
 
-        <button>Log In to Existing Account</button>
-      </form>
+        <Button variant="primary" type="submit">
+          Log In to Existing Account
+        </Button>
+      </Form>
     </div>
   );
 };

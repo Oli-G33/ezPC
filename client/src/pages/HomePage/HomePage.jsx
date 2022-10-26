@@ -7,7 +7,7 @@ import './HomePage.scss';
 const HomePage = () => {
   const {
     state: { products },
-    productState: { sort, byStock, byFastDelivery, byRating, searchQuery }
+    productState: { sort, byStock, byRating, searchQuery }
   } = CartState();
 
   const transformProducts = () => {
@@ -24,7 +24,7 @@ const HomePage = () => {
     }
 
     if (byRating) {
-      sortedProducts = sortedProducts.filter(prod => prod.rating == byRating);
+      sortedProducts = sortedProducts.filter(prod => prod.rating === byRating);
     }
 
     if (searchQuery) {

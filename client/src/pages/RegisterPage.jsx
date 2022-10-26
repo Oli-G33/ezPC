@@ -29,6 +29,7 @@ const RegisterPage = () => {
           placeholder="First Name"
           value={firstName}
           onChange={event => setFirstName(event.target.value)}
+          autoComplete="off"
         />
         <label htmlFor="input-LastName">Last Name</label>
         <input
@@ -36,6 +37,7 @@ const RegisterPage = () => {
           placeholder="Last Name"
           value={lastName}
           onChange={event => setLastName(event.target.value)}
+          autoComplete="off"
         />
 
         <label htmlFor="input-email">Email</label>
@@ -45,6 +47,7 @@ const RegisterPage = () => {
           placeholder="Email"
           value={email}
           onChange={event => setEmail(event.target.value)}
+          autoComplete="off"
         />
 
         <label htmlFor="input-password">Password</label>
@@ -54,6 +57,7 @@ const RegisterPage = () => {
           placeholder="Password"
           value={password}
           onChange={event => setPassword(event.target.value)}
+          autoComplete="off"
         />
 
         <button>Register New Account</button>

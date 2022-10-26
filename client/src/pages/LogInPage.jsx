@@ -10,9 +10,9 @@ const LogInPage = () => {
 
   const { setUser } = useContext(AuthenticationContext);
 
-  const handleLogIn = (event) => {
+  const handleLogIn = event => {
     event.preventDefault();
-    logInUser({ email, password }).then((data) => {
+    logInUser({ email, password }).then(data => {
       setUser(data.user);
       navigate('/');
     });
@@ -27,7 +27,8 @@ const LogInPage = () => {
           type="email"
           placeholder="Email"
           value={email}
-          onChange={(event) => setEmail(event.target.value)}
+          onChange={event => setEmail(event.target.value)}
+          autoComplete="off"
         />
 
         <label htmlFor="input-password">Password</label>
@@ -36,7 +37,8 @@ const LogInPage = () => {
           type="password"
           placeholder="Password"
           value={password}
-          onChange={(event) => setPassword(event.target.value)}
+          onChange={event => setPassword(event.target.value)}
+          autoComplete="off"
         />
 
         <button>Log In to Existing Account</button>

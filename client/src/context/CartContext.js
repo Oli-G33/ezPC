@@ -7,7 +7,7 @@ const Cart = createContext();
 const CartContext = ({ children }) => {
   const productList = [...Array(21)].map(() => ({
     _id: faker.datatype.number(10 ** 10),
-    // img: faker.image.abstract(1234, 2345, true),
+    img: faker.image.abstract(1234, 2345, true),
     name: faker.commerce.product(),
     description: faker.commerce.productDescription(),
     price: faker.commerce.price(0, 1000, 2),

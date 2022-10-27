@@ -46,7 +46,7 @@ const CartPage = () => {
                 </Col>
 
                 <Col>
-                  <Form.Control
+                  <Form.Select
                     as="select"
                     value={product.qty}
                     onChange={e =>
@@ -59,7 +59,7 @@ const CartPage = () => {
                     {[...Array(product.inStock).keys()].map(x => (
                       <option key={x + 1}>{x + 1}</option>
                     ))}
-                  </Form.Control>
+                  </Form.Select>
                 </Col>
                 <Col md={2}>
                   <Button

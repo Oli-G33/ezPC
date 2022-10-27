@@ -20,7 +20,7 @@
     "mongoose": "^6.2.11",
     "morgan": "^1.10.0",
     "serve-favicon": "^2.5.0",
-    "stripe": "^10.14.0"
+    "stripe": "^10.15.0"
   },
   "devDependencies": {
     "eslint": "^8.13.0",

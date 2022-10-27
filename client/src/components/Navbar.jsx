@@ -4,6 +4,7 @@ import './Navbar.scss';
 import { FaShoppingCart } from 'react-icons/fa';
 import { AiFillDelete } from 'react-icons/ai';
 import { GrLogout } from 'react-icons/gr';
+import { IconContext } from 'react-icons';
 
 import AuthenticationContext from '../context/authentication';
 import { signOutUser } from './../services/authentication';
@@ -41,7 +42,20 @@ const Header = () => {
           {(user && (
             <>
               <Link to="/">{user.firstName}'s Profile</Link>
-              <GrLogout onClick={handleSignOut}>Sign Out</GrLogout>
+              <IconContext.Provider
+                value={{ color: 'red', className: 'global-class-name' }}
+              >
+                <div>
+                  <GrLogout
+                    className="logout"
+                    style={{ cursor: 'pointer' }}
+                    color="white"
+                    onClick={handleSignOut}
+                  >
+                    Sign Out
+                  </GrLogout>
+                </div>
+              </IconContext.Provider>
             </>
           )) || (
             <>

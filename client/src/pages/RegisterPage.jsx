@@ -2,6 +2,8 @@ import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AuthenticationContext from '../context/authentication';
 import { registerUser } from '../services/authentication';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 const RegisterPage = () => {
   const [firstName, setFirstName] = useState('');
@@ -22,17 +24,17 @@ const RegisterPage = () => {
 
   return (
     <div>
-      <form onSubmit={handleRegistration}>
-        <label htmlFor="input-FirstName">First Name</label>
-        <input
+      <Form onSubmit={handleRegistration}>
+        <Form.Label htmlFor="input-FirstName">First Name</Form.Label>
+        <Form.Control
           id="input-FirstName"
           placeholder="First Name"
           value={firstName}
           onChange={event => setFirstName(event.target.value)}
           autoComplete="off"
         />
-        <label htmlFor="input-LastName">Last Name</label>
-        <input
+        <Form.Label htmlFor="input-LastName">Last Name</Form.Label>
+        <Form.Control
           id="input-LastName"
           placeholder="Last Name"
           value={lastName}
@@ -40,8 +42,8 @@ const RegisterPage = () => {
           autoComplete="off"
         />
 
-        <label htmlFor="input-email">Email</label>
-        <input
+        <Form.Label htmlFor="input-email">Email</Form.Label>
+        <Form.Control
           id="input-email"
           type="email"
           placeholder="Email"
@@ -50,8 +52,8 @@ const RegisterPage = () => {
           autoComplete="off"
         />
 
-        <label htmlFor="input-password">Password</label>
-        <input
+        <Form.Label htmlFor="input-password">Password</Form.Label>
+        <Form.Control
           id="input-password"
           type="password"
           placeholder="Password"
@@ -60,8 +62,10 @@ const RegisterPage = () => {
           autoComplete="off"
         />
 
-        <button>Register New Account</button>
-      </form>
+        <Button variant="primary" type="submit">
+          Register New Account
+        </Button>
+      </Form>
     </div>
   );
 };

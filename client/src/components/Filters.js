@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { CartState } from '../context/CartContext';
 import Rating from './Rating';
@@ -24,6 +25,11 @@ const Filters = () => {
               payload: 'lowToHigh'
             })
           }
+          onClick={() =>
+            productDispatch({
+              type: 'CLEAR_FILTERS'
+            })
+          }
           checked={sort === 'lowToHigh' ? true : false}
         />
       </span>
@@ -38,6 +44,11 @@ const Filters = () => {
             productDispatch({
               type: 'SORT_BY_PRICE',
               payload: 'highToLow'
+            })
+          }
+          onClick={() =>
+            productDispatch({
+              type: 'CLEAR_FILTERS'
             })
           }
           checked={sort === 'highToLow' ? true : false}

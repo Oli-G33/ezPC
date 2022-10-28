@@ -10,6 +10,7 @@ import AuthenticationContext from './context/authentication';
 import { loadUserInformation } from './services/authentication';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
+import { SuccessPage } from './pages/SuccessPage';
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="/log-in" element={<LogInPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path="/success" element={<SuccessPage />} />
         </Routes>
       </BrowserRouter>
     </AuthenticationContext.Provider>

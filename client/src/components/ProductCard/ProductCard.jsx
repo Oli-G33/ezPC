@@ -46,17 +46,19 @@ const ProductCard = ({ product }) => {
             Remove from Cart
           </Button>
         ) : (
-          <Button
-            onClick={() =>
-              dispatch({
-                type: 'ADD_TO_CART',
-                payload: product
-              })
-            }
-            disabled={!product.inStock}
-          >
-            {!product.inStock ? 'Out of Stock' : 'Add to Cart'}
-          </Button>
+          <p>
+            <Button
+              onClick={() =>
+                dispatch({
+                  type: 'ADD_TO_CART',
+                  payload: product
+                })
+              }
+              disabled={!product.inStock}
+            >
+              {!product.inStock ? 'Out of Stock' : 'Add to Cart'}
+            </Button>
+          </p>
         )}
       </Card.Body>
     </div>

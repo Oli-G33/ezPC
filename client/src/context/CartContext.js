@@ -13,7 +13,7 @@ const CartContext = ({ children }) => {
     price: faker.commerce.price(0, 1000, 2),
     inStock: faker.helpers.arrayElement([0, 1, 2, 3, 4, 5]),
     rating: faker.helpers.arrayElement([1, 2, 3, 4, 5]),
-    _id: Math.random() * 20
+    _id: Math.floor(Math.random() * 10 ** 6)
   }));
 
   const [state, dispatch] = useReducer(cartReducer, {

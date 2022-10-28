@@ -3,6 +3,8 @@ import { CartState } from '../context/CartContext';
 import { Button, Col, Form, Image, ListGroup, Row } from 'react-bootstrap';
 import Rating from '../components/Rating';
 import { AiFillDelete } from 'react-icons/ai';
+import { formatPrice } from '../utils/formatPrice';
+import { Link } from 'react-router-dom';
 
 const CartPage = () => {
   const {
@@ -18,12 +20,6 @@ const CartPage = () => {
     );
   }, [cart]);
 
-  const formatPrice = price =>
-    new Intl.NumberFormat('en-DE', {
-      style: 'currency',
-      currency: 'EUR'
-    }).format(price);
-
   return (
     <div className="home">
       <h3>Purchase Summary:</h3>
@@ -38,9 +34,9 @@ const CartPage = () => {
                   roundedCircle
                   style={{ width: 75, height: 50 }}
                 />
-                <Col></Col>
+
                 <Col md={2}>{product.name}</Col>
-                <Col md={2}>{formatPrice(product.price)}</Col>
+                <Col md={2}>{formatPrice(product.price * product.qty)}</Col>
                 <Col md={2}>
                   <Rating rating={product.rating} />
                 </Col>
@@ -74,10 +70,20 @@ const CartPage = () => {
               </Row>
             </ListGroup.Item>
           ))}
+          <Button as={Link} to="/checkout" state={{ total: total }}>
+            To Checkout
+          </Button>
         </ListGroup>
       </div>
       <div className="filters summary">
         <span className="title">Items: {cart.length}</span>
+        {cart.map(product => (
+          <ul>
+            <li>
+              {product.name} <small>x{product.qty}</small>
+            </li>
+          </ul>
+        ))}
         <span style={{ fontWeight: 700, fontSize: 20 }}>
           Total: {formatPrice(total)}
         </span>

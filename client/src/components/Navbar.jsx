@@ -3,14 +3,15 @@ import { Link, useLocation } from 'react-router-dom';
 import './Navbar.scss';
 import { FaShoppingCart } from 'react-icons/fa';
 import { AiFillDelete } from 'react-icons/ai';
-import { GrLogout } from 'react-icons/gr';
+import { TbLogout } from 'react-icons/tb';
 import { IconContext } from 'react-icons';
+import { formatPrice } from '../utils/formatPrice';
 
 import AuthenticationContext from '../context/authentication';
 import { signOutUser } from './../services/authentication';
 import { CartState } from '../context/CartContext';
+import Badge from 'react-bootstrap/Badge';
 import {
-  Badge,
   Button,
   Container,
   Dropdown,
@@ -43,17 +44,19 @@ const Header = () => {
             <>
               <Link to="/">{user.firstName}'s Profile</Link>
               <IconContext.Provider
-                value={{ color: 'red', className: 'global-class-name' }}
+                value={{
+                  color: 'red',
+                  size: '1.5em'
+                }}
               >
                 <div>
-                  <GrLogout
+                  <TbLogout
                     className="logout"
                     style={{ cursor: 'pointer' }}
-                    color="white"
                     onClick={handleSignOut}
                   >
                     Sign Out
-                  </GrLogout>
+                  </TbLogout>
                 </div>
               </IconContext.Provider>
             </>
@@ -99,7 +102,7 @@ const Header = () => {
                       />
                       <div className="cartItemDetail">
                         <span>{product.name}</span>
-                        <span>{product.price}</span>
+                        <span>{formatPrice(product.price)}</span>
                       </div>
                       <AiFillDelete
                         fontSize="20px"
@@ -113,11 +116,11 @@ const Header = () => {
                       />
                     </span>
                   ))}
-                  <Link to="/cart">
+                  <Dropdown.Item as={Link} to="/cart">
                     <Button style={{ width: '85%', margin: '0 10px' }}>
                       Go To Cart
                     </Button>
-                  </Link>
+                  </Dropdown.Item>
                 </>
               ) : (
                 <span style={{ padding: 10 }}>Cart is Empty!</span>

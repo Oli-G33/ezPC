@@ -53,11 +53,11 @@ app.use(basicAuthenticationDeserializer);
 app.use(bindUserToViewLocals);
 
 app.post('/create-payment-intent', async (req, res) => {
-  const { items } = req.body;
+  const { total } = req.body;
 
   // Create a PaymentIntent with the order amount and currency
   const paymentIntent = await stripe.paymentIntents.create({
-    amount: 500,
+    amount: total * 100,
     currency: 'eur',
     automatic_payment_methods: {
       enabled: true

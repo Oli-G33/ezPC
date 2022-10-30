@@ -11,6 +11,7 @@ import { loadUserInformation } from './services/authentication';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
 import { SuccessPage } from './pages/SuccessPage';
+import Footer from './components/Footer';
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -33,6 +34,7 @@ const App = () => {
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/success" element={<SuccessPage />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </AuthenticationContext.Provider>
   );

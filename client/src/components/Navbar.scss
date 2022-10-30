@@ -1,6 +1,7 @@
 nav {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   a {
     padding: 1em;
     text-decoration: none;
@@ -9,6 +10,9 @@ nav {
 }
 
 .toggle {
-  margin-top: 8%;
-  margin-left: 50%;
+  margin: 25% 0% 0% 15%;
+}
+
+.dropdown-menu.show {
+  margin-left: -50% !important;
 }

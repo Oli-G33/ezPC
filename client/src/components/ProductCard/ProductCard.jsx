@@ -1,6 +1,5 @@
 import { Button, Card } from 'react-bootstrap';
 import Rating from '../Rating';
-import { BsCartDash, BsCartPlusFill } from 'react-icons/bs';
 import { CartState } from '../../context/CartContext';
 
 const ProductCard = ({ product }) => {

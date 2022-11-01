@@ -6,14 +6,13 @@ const Cart = createContext();
 
 const CartContext = ({ children }) => {
   const productList = [...Array(21)].map(() => ({
-    _id: faker.datatype.number(10 ** 10),
+    _id: faker.datatype.number(10 ** 6),
     img: faker.image.abstract(1234, 2345, true),
     name: faker.commerce.product(),
     description: faker.commerce.productDescription(),
     price: faker.commerce.price(0, 1000, 2),
     inStock: faker.helpers.arrayElement([0, 1, 2, 3, 4, 5]),
-    rating: faker.helpers.arrayElement([1, 2, 3, 4, 5]),
-    _id: Math.floor(Math.random() * 10 ** 6)
+    rating: faker.helpers.arrayElement([1, 2, 3, 4, 5])
   }));
 
   const [state, dispatch] = useReducer(cartReducer, {

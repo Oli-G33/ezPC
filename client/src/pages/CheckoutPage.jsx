@@ -20,7 +20,7 @@ export default function CheckoutPage() {
     })
       .then(res => res.json())
       .then(data => setClientSecret(data.clientSecret));
-  }, []);
+  }, [total]);
 
   const appearance = {
     theme: 'stripe'

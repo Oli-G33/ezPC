@@ -1,18 +1,15 @@
-nav {
+.navbar-align {
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  a {
-    padding: 1em;
-    text-decoration: none;
-    color: white;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+ul {
+  li {
+    margin-right: 15%;
   }
 }
 
-.toggle {
-  margin: 25% 0% 0% 15%;
-}
-
-.dropdown-menu.show {
-  margin-left: -50% !important;
+.logout {
+  align-self: center;
 }

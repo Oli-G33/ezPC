@@ -1,6 +1,7 @@
 import { Button, Card } from 'react-bootstrap';
 import Rating from '../Rating';
 import { CartState } from '../../context/CartContext';
+import './ProductCard.scss';
 
 const ProductCard = ({ product }) => {
   const {
@@ -21,7 +22,8 @@ const ProductCard = ({ product }) => {
           variant="top"
           src={product.img}
           alt={product.name}
-          style={{ width: 250, height: 250 }}
+          style={{ width: 223, height: 220 }}
+          className="card-image"
         />
       </Card>
       <Card.Body>

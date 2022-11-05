@@ -7,7 +7,7 @@
     "dev": "nodemon ./server -e js,hbs",
     "dev:debug": "DEBUG=server* npm run dev",
     "lint": "eslint .",
-    "build": "node ./server"
+    "build": "npm install && node ./server"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

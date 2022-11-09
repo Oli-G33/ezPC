@@ -5,6 +5,7 @@ import Rating from '../components/Rating';
 import { AiFillDelete } from 'react-icons/ai';
 import { formatPrice } from '../utils/formatPrice';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const CartPage = () => {
   const {
@@ -22,6 +23,9 @@ const CartPage = () => {
 
   return (
     <div className="home">
+      <Helmet>
+        <title>Cart</title>
+      </Helmet>
       <h3>Purchase Summary:</h3>
       <div className="productContainer">
         <ListGroup>

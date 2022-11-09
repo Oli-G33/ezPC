@@ -6,12 +6,15 @@ import App from './App';
 import CartContext from './context/CartContext';
 import './styles/index.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { HelmetProvider } from 'react-helmet-async';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <CartContext>
-      <App />
-    </CartContext>
+    <HelmetProvider>
+      <CartContext>
+        <App />
+      </CartContext>
+    </HelmetProvider>
   </React.StrictMode>
 );

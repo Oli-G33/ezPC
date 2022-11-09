@@ -3,6 +3,7 @@ import Filters from '../../components/Filters';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import { CartState } from '../../context/CartContext';
 import './HomePage.scss';
+import { Helmet } from 'react-helmet-async';
 
 const HomePage = () => {
   const {
@@ -38,6 +39,9 @@ const HomePage = () => {
 
   return (
     <div className="home">
+      <Helmet>
+        <title>ezPC</title>
+      </Helmet>
       <Filters />
       <div className="productContainer">
         {transformProducts().map(product => {

@@ -60,7 +60,6 @@ router.post('/sign-out', (req, res, next) => {
 
 router.get('/me', (req, res, next) => {
   res.json({ user: req.user });
-  console.log(user);
 });
 
 module.exports = router;

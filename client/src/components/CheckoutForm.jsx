@@ -71,7 +71,7 @@ export default function CheckoutForm(props) {
 
     setIsLoading(false);
   };
-  console.log(props.total);
+
   return (
     <form id="payment-form" onSubmit={handleSubmit}>
       <PaymentElement id="payment-element" />

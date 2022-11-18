@@ -29,44 +29,46 @@ const RegisterPage = () => {
       <Form onSubmit={handleRegistration}>
         <Row className="g-2">
           <Col>
-            <Form.Label htmlFor="input-FirstName"></Form.Label>
-            <Form.Control
-              id="input-FirstName"
-              placeholder="First Name"
-              value={firstName}
-              onChange={event => setFirstName(event.target.value)}
-              autoComplete="off"
-            />
-
-            <Form.Label htmlFor="input-LastName"></Form.Label>
-            <Form.Control
-              id="input-LastName"
-              placeholder="Last Name"
-              value={lastName}
-              onChange={event => setLastName(event.target.value)}
-              autoComplete="off"
-            />
+            <Form.Group>
+              <Form.Label htmlFor="input-FirstName"></Form.Label>
+              <Form.Control
+                placeholder="First Name"
+                value={firstName}
+                onChange={event => setFirstName(event.target.value)}
+                autoComplete="off"
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label htmlFor="input-LastName"></Form.Label>
+              <Form.Control
+                placeholder="Last Name"
+                value={lastName}
+                onChange={event => setLastName(event.target.value)}
+                autoComplete="off"
+              />
+            </Form.Group>
           </Col>
           <Col>
-            <Form.Label htmlFor="input-email"></Form.Label>
-            <Form.Control
-              id="input-email"
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={event => setEmail(event.target.value)}
-              autoComplete="off"
-            />
-
-            <Form.Label htmlFor="input-password"></Form.Label>
-            <Form.Control
-              id="input-password"
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={event => setPassword(event.target.value)}
-              autoComplete="off"
-            />
+            <Form.Group>
+              <Form.Label htmlFor="input-email"></Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={event => setEmail(event.target.value)}
+                autoComplete="off"
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label htmlFor="input-password"></Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={event => setPassword(event.target.value)}
+                autoComplete="off"
+              />
+            </Form.Group>
           </Col>
           <Button variant="primary" type="submit">
             Sign Up

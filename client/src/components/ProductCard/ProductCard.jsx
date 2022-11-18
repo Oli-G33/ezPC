@@ -33,7 +33,10 @@ const ProductCard = ({ product }) => {
           <br />
           Available: {product.inStock}
         </Card.Text>
-        <Rating rating={product.rating} />
+        <Card.Text>
+          <Rating rating={product.rating} />
+        </Card.Text>
+        <br />
         {cart.some(p => p._id === product._id) ? (
           <Button
             variant="danger"

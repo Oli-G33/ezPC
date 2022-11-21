@@ -54,7 +54,7 @@ h5 {
 }
 
 .filters {
-  background-color: black;
+  background-color: #000033;
   color: white;
   padding: 20px;
   display: flex;
@@ -70,14 +70,6 @@ h5 {
 
 .title {
   font-size: 30px;
-}
-
-.productContainer {
-  display: flex;
-  width: 78%;
-  padding: 20px;
-  flex-wrap: wrap;
-  justify-content: space-around;
 }
 
 .products {
@@ -100,6 +92,7 @@ h5 {
 .rating-style {
   display: flex;
   flex-direction: row;
+  color: gold;
 }
 /* Media Queries */
 @media (max-width: 771px) {

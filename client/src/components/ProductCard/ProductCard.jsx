@@ -22,7 +22,6 @@ const ProductCard = ({ product }) => {
           variant="top"
           src={product.img}
           alt={product.name}
-          style={{ width: 223, height: 220 }}
           className="card-image"
         />
       </Card>
@@ -36,7 +35,7 @@ const ProductCard = ({ product }) => {
         <Card.Text>
           <Rating rating={product.rating} />
         </Card.Text>
-        <br />
+
         {cart.some(p => p._id === product._id) ? (
           <Button
             variant="danger"

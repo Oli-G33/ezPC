@@ -22,13 +22,10 @@ import {
 
 const Header = () => {
   const { user, setUser } = useContext(AuthenticationContext);
-  const [showBasic, setShowBasic] = useState(false);
   const [extendNavbar, setExtendNavbar] = useState(false);
 
   const {
-    state: { cart },
-    dispatch,
-    productDispatch
+    state: { cart }
   } = CartState();
 
   const handleSignOut = () => {
@@ -77,8 +74,9 @@ const Header = () => {
                 <>
                   <NavbarLink to="/login">Log In</NavbarLink>
                   <NavbarLink to="/register">Register</NavbarLink>
-                  <NavbarLink to="/login">
+                  <NavbarLink to="/cart">
                     <FaShoppingCart color="white" fontSize="25px" />
+                    <NavBadge>{cart.length}</NavBadge>
                   </NavbarLink>
                 </>
               )}
@@ -94,26 +92,43 @@ const Header = () => {
         </NavbarInnerContainer>
         {extendNavbar && (
           <NavbarExtendedContainer>
-            <NavbarLinkExtended to="/login">Log in</NavbarLinkExtended>
-            <NavbarLinkExtended to="/register">Sign up</NavbarLinkExtended>
-            <NavbarLinkExtended>
-              {' '}
-              <IconContext.Provider
-                value={{
-                  color: 'red',
-                  size: '1.5em'
-                }}
-              >
-                <div className=" d-flex align-self-center">
-                  <TbLogout
-                    style={{ cursor: 'pointer' }}
-                    onClick={handleSignOut}
+            {(user && (
+              <>
+                <NavbarLinkExtended to="/cart">
+                  <FaShoppingCart color="white" fontSize="75px" />
+                  <NavBadge>{cart.length}</NavBadge>
+                </NavbarLinkExtended>
+                <NavbarLinkExtended to="/">
+                  {user.firstName}'s Profile
+                </NavbarLinkExtended>
+                <NavbarLinkExtended>
+                  <IconContext.Provider
+                    value={{
+                      color: 'red',
+                      size: '2.5em'
+                    }}
                   >
-                    Sign Out
-                  </TbLogout>
-                </div>
-              </IconContext.Provider>
-            </NavbarLinkExtended>
+                    <div className=" d-flex align-self-center">
+                      <TbLogout
+                        style={{ cursor: 'pointer' }}
+                        onClick={handleSignOut}
+                      >
+                        Sign Out
+                      </TbLogout>
+                    </div>
+                  </IconContext.Provider>
+                </NavbarLinkExtended>
+              </>
+            )) || (
+              <>
+                <NavbarLinkExtended to="/cart">
+                  <FaShoppingCart color="white" fontSize="75px" />
+                  <NavBadge>{cart.length}</NavBadge>
+                </NavbarLinkExtended>
+                <NavbarLinkExtended to="/login">Log In</NavbarLinkExtended>
+                <NavbarLinkExtended to="/register">Register</NavbarLinkExtended>
+              </>
+            )}
           </NavbarExtendedContainer>
         )}
       </NavbarContainer>

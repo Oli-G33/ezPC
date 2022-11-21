@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 
 export const NavbarContainer = styled.nav`
   width: 100%;
-  height: ${props => (props.extendNavbar ? '100vh' : '60px')};
-  background-color: black;
+  height: ${props => (props.extendNavbar ? '100vh' : '80px')};
+  background-color: #000040;
   display: flex;
   flex-direction: column;
   position: sticky;
 
   @media (min-width: 700px) {
-    height: 60px;
+    height: 80px;
   }
 `;
 
@@ -96,4 +96,10 @@ export const NavBadge = styled.span`
   font-size: 8px;
   border-radius: 24px;
   border: 2px solid white;
+
+  @media (max-width: 700px) {
+    font-size: 24px;
+    padding: 0 6px;
+    margin-left: -16px;
+  }
 `;

@@ -56,6 +56,11 @@ const LogInPage = () => {
           </Button>
         </Row>
       </Form>
+      <span>
+        <small>
+          Not registered? <a href="/register">Sign up!</a>
+        </small>
+      </span>
     </div>
   );
 };

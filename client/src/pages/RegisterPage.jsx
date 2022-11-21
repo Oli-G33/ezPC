@@ -75,6 +75,11 @@ const RegisterPage = () => {
           </Button>
         </Row>
       </Form>
+      <span>
+        <small>
+          Already registered? <a href="/login">Sign in!</a>
+        </small>
+      </span>
     </div>
   );
 };

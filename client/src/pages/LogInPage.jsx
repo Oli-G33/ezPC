@@ -24,7 +24,7 @@ const LogInPage = () => {
 
   return (
     <div className="authForm">
-      <Form onSubmit={handleLogIn} style={{ width: 600 }}>
+      <Form onSubmit={handleLogIn} style={{ width: 700 }}>
         <Row className="g-2">
           <Col>
             <Form.Group className="mb-3">

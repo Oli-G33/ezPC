@@ -1,4 +1,5 @@
 import React from 'react';
+import './Footer.scss';
 import {
   MDBFooter,
   MDBContainer,
@@ -11,14 +12,14 @@ const year = new Date().getFullYear();
 
 export default function Footer() {
   return (
-    <div id="footer">
+    <div className="footer">
       <MDBFooter
         bgColor="dark"
-        className="text-center text-lg-start text-muted position-absolute bottom-0"
+        className="text-center text-lg-start text-light"
       >
-        <section className="d-flex justify-content-center  p-4 border-bottom">
+        <section className="d-flex justify-content-center p-4">
           <div className="me-4 d-none d-lg-block">
-            <span>Connect with me on social media:</span>
+            <span>Find me on social media:</span>
           </div>
           <div>
             <a
@@ -27,7 +28,7 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer"
             >
-              <MDBIcon color="secondary" fab icon="linkedin" />
+              <MDBIcon color="light" fab icon="linkedin" />
             </a>
             <a
               href="https://github.com/Oli-G33"
@@ -35,7 +36,7 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer"
             >
-              <MDBIcon color="secondary" fab icon="github" />
+              <MDBIcon color="light" fab icon="github" />
             </a>
           </div>
         </section>
@@ -50,11 +51,11 @@ export default function Footer() {
                   Oliver Garcia
                 </p>
                 <p>
-                  <MDBIcon color="secondary" icon="envelope" className="me-3" />
+                  <MDBIcon color="light" icon="envelope" className="me-3" />
                   <a href="mailto:ngarcia333@gmail.com">ngarcia333@gmail.com</a>
                 </p>
                 <p>
-                  <MDBIcon color="secondary" icon="phone" className="me-3" />
+                  <MDBIcon color="light" icon="phone" className="me-3" />
                   <a href="tel:+491795385452">+49 179 5385452</a>
                 </p>
                 <p>

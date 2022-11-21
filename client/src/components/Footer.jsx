@@ -11,7 +11,7 @@ const year = new Date().getFullYear();
 
 export default function Footer() {
   return (
-    <MDBFooter bgColor="light" className="text-center text-lg-start text-muted">
+    <MDBFooter bgColor="dark" className="text-center text-lg-start text-muted">
       <section className="d-flex justify-content-center  p-4 border-bottom">
         <div className="me-4 d-none d-lg-block">
           <span>Connect with me on social media:</span>

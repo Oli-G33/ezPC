@@ -74,7 +74,12 @@ const CartPage = () => {
               </Row>
             </ListGroup.Item>
           ))}
-          <Button as={Link} to="/checkout" state={{ total: total }}>
+          <Button
+            className="checkout-btn"
+            as={Link}
+            to="/checkout"
+            state={{ total: total }}
+          >
             To Checkout
           </Button>
         </ListGroup>

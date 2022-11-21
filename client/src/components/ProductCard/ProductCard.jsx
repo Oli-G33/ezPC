@@ -50,7 +50,7 @@ const ProductCard = ({ product }) => {
             Remove from Cart
           </Button>
         ) : (
-          <p>
+          <span>
             <Button
               onClick={() =>
                 dispatch({
@@ -62,7 +62,7 @@ const ProductCard = ({ product }) => {
             >
               {!product.inStock ? 'Out of Stock' : 'Add to Cart'}
             </Button>
-          </p>
+          </span>
         )}
       </Card.Body>
     </div>

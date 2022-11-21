@@ -11,7 +11,7 @@
 }
 
 .filters {
-  background-color: #343a40;
+  background-color: black;
   color: white;
   padding: 20px;
   display: flex;
@@ -19,6 +19,7 @@
   width: 20%;
   margin: 10px;
   height: 86vh;
+  border-radius: 2%;
 }
 
 .filters > span {

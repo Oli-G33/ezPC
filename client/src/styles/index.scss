@@ -110,11 +110,6 @@ h5 {
     font-size: 18px !important;
   }
 
-  .productContainer {
-    width: 58%;
-    padding: 0;
-  }
-
   .search {
     display: none !important;
   }
@@ -155,6 +150,7 @@ h5 {
 }
 
 .checkout-btn {
-  margin-top: 5%;
-  width: 80%;
+  display: flex;
+  width: 90%;
+  margin: 5% 0 25% 5%;
 }

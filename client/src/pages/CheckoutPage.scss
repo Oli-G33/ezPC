@@ -120,6 +120,10 @@
     animation: loading 2s infinite ease;
   }
 
+  #payment-form {
+    margin-bottom: 15%;
+  }
+
   @keyframes loading {
     0% {
       -webkit-transform: rotate(0deg);

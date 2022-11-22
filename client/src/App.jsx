@@ -12,6 +12,7 @@ import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
 import { SuccessPage } from './pages/SuccessPage';
 import Footer from './components/Footer';
+import ProductsPage from './pages/ProductsPage/ProductsPage';
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LogInPage />} />
+          <Route path="/products" element={<ProductsPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/success" element={<SuccessPage />} />

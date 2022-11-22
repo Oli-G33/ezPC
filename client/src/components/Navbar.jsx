@@ -19,6 +19,7 @@ import {
   RightContainer,
   NavBadge
 } from './Navbar.style';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const { user, setUser } = useContext(AuthenticationContext);
@@ -39,20 +40,21 @@ const Header = () => {
       <NavbarContainer extendNavbar={extendNavbar}>
         <NavbarInnerContainer>
           <LeftContainer>
-            <a href="/">
+            <Link to="/">
               <Logo src={LogoImg}></Logo>
-            </a>
+            </Link>
           </LeftContainer>
           <RightContainer>
             <NavbarLinkContainer>
               {(user && (
                 <>
+                  <NavbarLink to="/products">Products</NavbarLink>
                   <NavbarLink to="/">{user.firstName}'s Profile</NavbarLink>
                   <NavbarLink to="/cart">
                     <FaShoppingCart color="white" fontSize="25px" />
                     <NavBadge>{cart.length}</NavBadge>
                   </NavbarLink>
-                  <NavbarLink>
+                  <NavbarLink to="/">
                     <IconContext.Provider
                       value={{
                         color: 'red',
@@ -72,6 +74,7 @@ const Header = () => {
                 </>
               )) || (
                 <>
+                  <NavbarLink to="/products">Products</NavbarLink>
                   <NavbarLink to="/login">Log In</NavbarLink>
                   <NavbarLink to="/register">Register</NavbarLink>
                   <NavbarLink to="/cart">
@@ -94,14 +97,15 @@ const Header = () => {
           <NavbarExtendedContainer>
             {(user && (
               <>
+                <NavbarLinkExtended to="/products">Products</NavbarLinkExtended>
+                <NavbarLinkExtended to="/">
+                  {user.firstName}'s Profile
+                </NavbarLinkExtended>
                 <NavbarLinkExtended to="/cart">
                   <FaShoppingCart color="white" fontSize="75px" />
                   <NavBadge>{cart.length}</NavBadge>
                 </NavbarLinkExtended>
                 <NavbarLinkExtended to="/">
-                  {user.firstName}'s Profile
-                </NavbarLinkExtended>
-                <NavbarLinkExtended>
                   <IconContext.Provider
                     value={{
                       color: 'red',
@@ -121,12 +125,13 @@ const Header = () => {
               </>
             )) || (
               <>
+                <NavbarLinkExtended to="/products">Products</NavbarLinkExtended>
+                <NavbarLinkExtended to="/login">Log In</NavbarLinkExtended>
+                <NavbarLinkExtended to="/register">Register</NavbarLinkExtended>
                 <NavbarLinkExtended to="/cart">
                   <FaShoppingCart color="white" fontSize="75px" />
                   <NavBadge>{cart.length}</NavBadge>
                 </NavbarLinkExtended>
-                <NavbarLinkExtended to="/login">Log In</NavbarLinkExtended>
-                <NavbarLinkExtended to="/register">Register</NavbarLinkExtended>
               </>
             )}
           </NavbarExtendedContainer>

@@ -87,7 +87,7 @@ const CartPage = () => {
       <div className="filters summary">
         <span className="title">Items: {cart.length}</span>
         {cart.map(product => (
-          <ul>
+          <ul key={product._id}>
             <li>
               {product.name} <small>x{product.qty}</small>
             </li>

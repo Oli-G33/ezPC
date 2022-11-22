@@ -103,3 +103,10 @@ export const NavBadge = styled.span`
     margin-left: -16px;
   }
 `;
+
+export const CarrouselBtn = styled.button`
+  border: 2px solid white;
+  background-color: Transparent;
+  color: white;
+  text-decoration: none;
+`;

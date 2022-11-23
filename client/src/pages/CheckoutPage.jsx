@@ -17,7 +17,7 @@ export default function CheckoutPage() {
   const { total } = location.state;
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_ORIGINS}/create-payment-intent`, {
+    fetch(`${process.env.REACT_APP_REST_API_URL}/create-payment-intent`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ total })

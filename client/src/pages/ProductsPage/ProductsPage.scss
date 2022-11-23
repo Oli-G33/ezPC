@@ -25,3 +25,20 @@
 .filters > span {
   padding-bottom: 20px;
 }
+
+.carousel {
+  display: flex;
+  margin: 0 10%;
+  justify-content: center;
+  width: 80%;
+  background-color: whitesmoke;
+  color: red !important;
+}
+
+.intro-section {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 3% 0;
+  background-color: azure;
+}

@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom';
 import CheckoutForm from '../components/CheckoutForm';
 import Toast from 'react-bootstrap/Toast';
 import ToastContainer from 'react-bootstrap/ToastContainer';
+import { Helmet } from 'react-helmet-async';
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC);
 
@@ -36,6 +37,9 @@ export default function CheckoutPage() {
 
   return (
     <div>
+      <Helmet>
+        <title>Checkout</title>
+      </Helmet>
       <ToastContainer position="top-center" className="p-3">
         <Toast
           bg="success"

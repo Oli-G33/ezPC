@@ -1,11 +1,17 @@
 import React from 'react';
+import UnderConstruction from '../assets/Success-Construction.png';
 
 const bgColor = '#F8FAF5';
 
 export const SuccessPage = () => {
   return (
-    <div className="card">
-      <div
+    <div>
+      <img
+        src={UnderConstruction}
+        alt="Page under construction"
+        style={{ width: 700 }}
+      />
+      {/* <div
         style={{
           borderRadius: 200,
           height: 200,
@@ -20,7 +26,7 @@ export const SuccessPage = () => {
       <p>
         We received your purchase request;
         <br /> we'll be in touch shortly!
-      </p>
+      </p> */}
     </div>
   );
 };

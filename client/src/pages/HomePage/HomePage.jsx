@@ -2,6 +2,7 @@ import React from 'react';
 import { MDBCarousel, MDBCarouselItem } from 'mdb-react-ui-kit';
 import { CarrouselBtn } from '../../components/Navbar.style';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import CarrouselImg1 from '../../assets/CarrouselImg1.jpg';
 import CarrouselImg2 from '../../assets/CarrouselImg2.jpg';
 import CarrouselImg3 from '../../assets/CarrouselImg3.jpg';
@@ -9,6 +10,9 @@ import CarrouselImg3 from '../../assets/CarrouselImg3.jpg';
 const HomePage = () => {
   return (
     <>
+      <Helmet>
+        <title>ezPC</title>
+      </Helmet>
       <div className="carousel">
         <MDBCarousel showIndicators showControls fade h-75>
           <MDBCarouselItem
@@ -18,8 +22,10 @@ const HomePage = () => {
             alt="..."
             style={{ objectFit: 'contain' }}
           >
-            <h5>Alienware Aurora MX1</h5>
-            <p>Experience the freedom of immersive performance.</p>
+            <div className="carousel-text">
+              <h5>Alienware Aurora MX1</h5>
+              <p>Experience the freedom of immersive performance.</p>
+            </div>
             <CarrouselBtn>
               <Link
                 to="/products"
@@ -35,9 +41,12 @@ const HomePage = () => {
             itemId={2}
             src={CarrouselImg2}
             alt="..."
+            dark
           >
-            <h5>Second slide label</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div className="carousel-text">
+              <h5 style={{ color: 'black' }}>MacBook Air</h5>
+              <p style={{ color: 'black' }}>Don’t take it lightly.</p>
+            </div>
             <CarrouselBtn>
               <Link
                 to="/products"
@@ -54,10 +63,10 @@ const HomePage = () => {
             src={CarrouselImg3}
             alt="..."
           >
-            <h5>Third slide label</h5>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
+            <div className="carousel-text">
+              <h5>Surface Pro 9</h5>
+              <p>All in one ultra-portable device</p>
+            </div>
             <CarrouselBtn>
               <Link
                 to="/products"
@@ -71,13 +80,18 @@ const HomePage = () => {
       </div>
 
       <section className="intro-section">
-        <h2>About us:</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus,
-          ratione nisi. Maiores fugit at assumenda voluptatibus voluptates!
-          Voluptatum, facilis. Ipsa officiis nam eos, facilis corporis totam
-          fuga optio minima sed!
-        </p>
+        <div>
+          <h2>About us:</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus,
+            ratione nisi. Maiores fugit at assumenda voluptatibus voluptates!
+            Voluptatum, facilis. Ipsa officiis nam eos, facilis corporis totam
+            fuga optio minima sed!
+          </p>
+        </div>
+        <div>
+          <h2>Something will go here</h2>
+        </div>
       </section>
     </>
   );

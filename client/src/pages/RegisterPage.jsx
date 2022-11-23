@@ -11,6 +11,7 @@ import {
   MDBCardBody,
   MDBInput
 } from 'mdb-react-ui-kit';
+import { Helmet } from 'react-helmet-async';
 
 const RegisterPage = () => {
   const [firstName, setFirstName] = useState('');
@@ -30,156 +31,106 @@ const RegisterPage = () => {
   };
 
   return (
-    <MDBContainer className="p-4 background-radial-gradient overflow-hidden w-75">
-      <MDBRow>
-        <MDBCol
-          md="6"
-          className="text-center text-md-start d-flex flex-column justify-content-center"
-        >
-          <h1
-            className="my-5 display-3 fw-bold ls-tight px-3"
-            style={{ color: 'hsl(218, 81%, 90%)' }}
+    <div>
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
+
+      <MDBContainer className="p-4 background-radial-gradient overflow-hidden w-75">
+        <MDBRow>
+          <MDBCol
+            md="6"
+            className="text-center text-md-start d-flex flex-column justify-content-center"
           >
-            The best PC's <br />
-            <span style={{ color: 'hsl(218, 81%, 75%)' }}>
-              and Laptops for your needs
-            </span>
-          </h1>
+            <h1
+              className="my-5 display-3 fw-bold ls-tight px-3"
+              style={{ color: 'hsl(218, 81%, 90%)' }}
+            >
+              The best PC's <br />
+              <span style={{ color: 'hsl(218, 81%, 75%)' }}>
+                and Laptops for your needs
+              </span>
+            </h1>
 
-          <p className="px-3" style={{ color: 'hsl(218, 81%, 85%)' }}>
-            At ezPC we're all about the best customer service and gaming
-            experience. With over 30 years in the market, you can count on us to
-            help you choose the best sytem for your needs!
-          </p>
-        </MDBCol>
+            <p className="px-3" style={{ color: 'hsl(218, 81%, 85%)' }}>
+              At ezPC we're all about the best customer service and gaming
+              experience. With over 30 years in the market, you can count on us
+              to help you choose the best sytem for your needs!
+            </p>
+          </MDBCol>
 
-        <MDBCol md="6" className="position-relative">
-          <div
-            id="radius-shape-1"
-            className="position-absolute rounded-circle shadow-5-strong"
-          ></div>
-          <div
-            id="radius-shape-2"
-            className="position-absolute shadow-5-strong"
-          ></div>
-          <form onSubmit={handleRegistration}>
-            <MDBCard className="my-5 bg-glass">
-              <MDBCardBody className="p-5">
-                <MDBRow>
-                  <MDBCol col="6">
-                    <MDBInput
-                      wrapperClass="mb-4"
-                      label="First name"
-                      id="firstName"
-                      type="text"
-                      value={firstName}
-                      onChange={event => setFirstName(event.target.value)}
-                      autoComplete="off"
-                    />
-                  </MDBCol>
+          <MDBCol md="6" className="position-relative">
+            <div
+              id="radius-shape-1"
+              className="position-absolute rounded-circle shadow-5-strong"
+            ></div>
+            <div
+              id="radius-shape-2"
+              className="position-absolute shadow-5-strong"
+            ></div>
+            <form onSubmit={handleRegistration}>
+              <MDBCard className="my-5 bg-glass">
+                <MDBCardBody className="p-5">
+                  <MDBRow>
+                    <MDBCol col="6">
+                      <MDBInput
+                        wrapperClass="mb-4"
+                        label="First name"
+                        id="firstName"
+                        type="text"
+                        value={firstName}
+                        onChange={event => setFirstName(event.target.value)}
+                        autoComplete="off"
+                      />
+                    </MDBCol>
 
-                  <MDBCol col="6">
-                    <MDBInput
-                      wrapperClass="mb-4"
-                      label="Last name"
-                      id="lastName"
-                      type="text"
-                      value={lastName}
-                      onChange={event => setLastName(event.target.value)}
-                      autoComplete="off"
-                    />
-                  </MDBCol>
-                </MDBRow>
+                    <MDBCol col="6">
+                      <MDBInput
+                        wrapperClass="mb-4"
+                        label="Last name"
+                        id="lastName"
+                        type="text"
+                        value={lastName}
+                        onChange={event => setLastName(event.target.value)}
+                        autoComplete="off"
+                      />
+                    </MDBCol>
+                  </MDBRow>
 
-                <MDBInput
-                  wrapperClass="mb-4"
-                  label="Email"
-                  id="email"
-                  type="email"
-                  value={email}
-                  onChange={event => setEmail(event.target.value)}
-                  autoComplete="off"
-                />
-                <MDBInput
-                  wrapperClass="mb-4"
-                  label="Password"
-                  id="password"
-                  type="password"
-                  value={password}
-                  onChange={event => setPassword(event.target.value)}
-                  autoComplete="off"
-                />
+                  <MDBInput
+                    wrapperClass="mb-4"
+                    label="Email"
+                    id="email"
+                    type="email"
+                    value={email}
+                    onChange={event => setEmail(event.target.value)}
+                    autoComplete="off"
+                  />
+                  <MDBInput
+                    wrapperClass="mb-4"
+                    label="Password"
+                    id="password"
+                    type="password"
+                    value={password}
+                    onChange={event => setPassword(event.target.value)}
+                    autoComplete="off"
+                  />
 
-                <MDBBtn className="w-100 mb-4" size="md" type="submit">
-                  sign up
-                </MDBBtn>
-                <span>
-                  <small>
-                    Already registered? <a href="/login">Sign in!</a>
-                  </small>
-                </span>
-              </MDBCardBody>
-            </MDBCard>
-          </form>
-        </MDBCol>
-      </MDBRow>
-    </MDBContainer>
-    // <div className="authForm">
-    //   <Form onSubmit={handleRegistration}>
-    //     <Row className="g-2">
-    //       <Col>
-    //         <Form.Group>
-    //           <Form.Label htmlFor="input-FirstName"></Form.Label>
-    //           <Form.Control
-    //             placeholder="First Name"
-    //             value={firstName}
-    //             onChange={event => setFirstName(event.target.value)}
-    //             autoComplete="off"
-    //           />
-    //         </Form.Group>
-    //         <Form.Group>
-    //           <Form.Label htmlFor="input-LastName"></Form.Label>
-    //           <Form.Control
-    //             placeholder="Last Name"
-    //             value={lastName}
-    //             onChange={event => setLastName(event.target.value)}
-    //             autoComplete="off"
-    //           />
-    //         </Form.Group>
-    //       </Col>
-    //       <Col>
-    //         <Form.Group>
-    //           <Form.Label htmlFor="input-email"></Form.Label>
-    //           <Form.Control
-    //             type="email"
-    //             placeholder="Email"
-    //             value={email}
-    //             onChange={event => setEmail(event.target.value)}
-    //             autoComplete="off"
-    //           />
-    //         </Form.Group>
-    //         <Form.Group>
-    //           <Form.Label htmlFor="input-password"></Form.Label>
-    //           <Form.Control
-    //             type="password"
-    //             placeholder="Password"
-    //             value={password}
-    //             onChange={event => setPassword(event.target.value)}
-    //             autoComplete="off"
-    //           />
-    //         </Form.Group>
-    //       </Col>
-    //       <Button variant="primary" type="submit">
-    //         Sign Up
-    //       </Button>
-    //     </Row>
-    //   </Form>
-    //   <span>
-    //     <small>
-    //       Already registered? <a href="/login">Sign in!</a>
-    //     </small>
-    //   </span>
-    // </div>
+                  <MDBBtn className="w-100 mb-4" size="md" type="submit">
+                    sign up
+                  </MDBBtn>
+                  <span>
+                    <small>
+                      Already registered? <a href="/login">Sign in!</a>
+                    </small>
+                  </span>
+                </MDBCardBody>
+              </MDBCard>
+            </form>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
+    </div>
   );
 };
 

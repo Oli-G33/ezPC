@@ -40,7 +40,7 @@ const ProductsPage = () => {
   return (
     <div className="home">
       <Helmet>
-        <title>ezPC</title>
+        <title>Products</title>
       </Helmet>
       <Filters />
       <div className="productContainer">

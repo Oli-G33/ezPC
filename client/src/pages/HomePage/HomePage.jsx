@@ -91,6 +91,12 @@ const HomePage = () => {
         </div>
         <div>
           <h2>Something will go here</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+            reiciendis at, incidunt optio placeat ea saepe fuga illo voluptatem
+            minima velit animi cumque ipsum dolore, veritatis quasi.
+            Voluptatibus, minima provident?
+          </p>
         </div>
       </section>
     </>

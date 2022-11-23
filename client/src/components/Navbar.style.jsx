@@ -15,16 +15,17 @@ export const NavbarContainer = styled.nav`
 `;
 
 export const LeftContainer = styled.div`
-  flex: 30%;
+  flex: 70%;
   display: flex;
   align-items: center;
   padding-left: 5%;
 `;
 export const RightContainer = styled.div`
-  flex: 70%;
+  flex: 30%;
   display: flex;
   justify-content: flex-end;
   padding-right: 50px;
+  align-items: center;
 `;
 
 export const Logo = styled.img`
@@ -88,12 +89,12 @@ export const OpenLinksButton = styled.button`
 `;
 
 export const NavBadge = styled.span`
-  margin-left: -7px;
-  padding: 0 2px;
+  margin-left: -10px;
+  padding: 0 3px;
   vertical-align: top;
   background-color: red;
   color: white;
-  font-size: 8px;
+  font-size: 12px;
   border-radius: 24px;
   border: 2px solid white;
 

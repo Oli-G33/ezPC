@@ -40,11 +40,6 @@ const Header = () => {
       <NavbarContainer extendNavbar={extendNavbar}>
         <NavbarInnerContainer>
           <LeftContainer>
-            <Link to="/">
-              <Logo src={LogoImg}></Logo>
-            </Link>
-          </LeftContainer>
-          <RightContainer>
             <NavbarLinkContainer>
               {(user && (
                 <>
@@ -78,7 +73,7 @@ const Header = () => {
                   <NavbarLink to="/login">Log In</NavbarLink>
                   <NavbarLink to="/register">Register</NavbarLink>
                   <NavbarLink to="/cart">
-                    <FaShoppingCart color="white" fontSize="25px" />
+                    <FaShoppingCart color="white" fontSize="35px" />
                     <NavBadge>{cart.length}</NavBadge>
                   </NavbarLink>
                 </>
@@ -91,17 +86,39 @@ const Header = () => {
                 {extendNavbar ? <>&#10005;</> : <> &#8801;</>}
               </OpenLinksButton>
             </NavbarLinkContainer>
+          </LeftContainer>
+          <RightContainer>
+            <Link to="/">
+              <Logo src={LogoImg}></Logo>
+            </Link>
           </RightContainer>
         </NavbarInnerContainer>
         {extendNavbar && (
           <NavbarExtendedContainer>
             {(user && (
               <>
-                <NavbarLinkExtended to="/products">Products</NavbarLinkExtended>
-                <NavbarLinkExtended to="/">
+                <NavbarLinkExtended
+                  to="/products"
+                  onClick={() => {
+                    setExtendNavbar(curr => !curr);
+                  }}
+                >
+                  Products
+                </NavbarLinkExtended>
+                <NavbarLinkExtended
+                  to="/"
+                  onClick={() => {
+                    setExtendNavbar(curr => !curr);
+                  }}
+                >
                   {user.firstName}'s Profile
                 </NavbarLinkExtended>
-                <NavbarLinkExtended to="/cart">
+                <NavbarLinkExtended
+                  to="/cart"
+                  onClick={() => {
+                    setExtendNavbar(curr => !curr);
+                  }}
+                >
                   <FaShoppingCart color="white" fontSize="75px" />
                   <NavBadge>{cart.length}</NavBadge>
                 </NavbarLinkExtended>
@@ -125,10 +142,36 @@ const Header = () => {
               </>
             )) || (
               <>
-                <NavbarLinkExtended to="/products">Products</NavbarLinkExtended>
-                <NavbarLinkExtended to="/login">Log In</NavbarLinkExtended>
-                <NavbarLinkExtended to="/register">Register</NavbarLinkExtended>
-                <NavbarLinkExtended to="/cart">
+                <NavbarLinkExtended
+                  onClick={() => {
+                    setExtendNavbar(curr => !curr);
+                  }}
+                  to="/products"
+                >
+                  Products
+                </NavbarLinkExtended>
+                <NavbarLinkExtended
+                  onClick={() => {
+                    setExtendNavbar(curr => !curr);
+                  }}
+                  to="/login"
+                >
+                  Log In
+                </NavbarLinkExtended>
+                <NavbarLinkExtended
+                  onClick={() => {
+                    setExtendNavbar(curr => !curr);
+                  }}
+                  to="/register"
+                >
+                  Register
+                </NavbarLinkExtended>
+                <NavbarLinkExtended
+                  onClick={() => {
+                    setExtendNavbar(curr => !curr);
+                  }}
+                  to="/cart"
+                >
                   <FaShoppingCart color="white" fontSize="75px" />
                   <NavBadge>{cart.length}</NavBadge>
                 </NavbarLinkExtended>

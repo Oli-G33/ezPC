@@ -5,12 +5,8 @@ const bgColor = '#F8FAF5';
 
 export const SuccessPage = () => {
   return (
-    <div>
-      <img
-        src={UnderConstruction}
-        alt="Page under construction"
-        style={{ width: 700 }}
-      />
+    <div className="success">
+      <img src={UnderConstruction} alt="Page under construction" />
       {/* <div
         style={{
           borderRadius: 200,

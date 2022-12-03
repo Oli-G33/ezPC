@@ -26,77 +26,95 @@ const CartPage = () => {
       <Helmet>
         <title>Cart</title>
       </Helmet>
-      <h3>Purchase Summary:</h3>
-      <div className="productContainer">
-        <ListGroup>
-          {cart.map(product => (
-            <ListGroup.Item key={product._id}>
-              <Row>
-                <Image
-                  src={product.img}
-                  alt={product.name}
-                  roundedCircle
-                  style={{ width: 75, height: 50 }}
-                />
+      <h3>Shopping Cart:</h3>
+      <br></br>
+      {!cart.length ? (
+        <>
+          <h2>Your cart is empty</h2>
+          <br></br>
+          <button>
+            <Link to="/products">See products</Link>
+          </button>
+        </>
+      ) : (
+        <>
+          <div className="productContainer">
+            <ListGroup>
+              {cart.map(product => (
+                <ListGroup.Item key={product._id}>
+                  <Row>
+                    <Image
+                      src={product.img}
+                      alt={product.name}
+                      roundedCircle
+                      style={{ width: 75, height: 50 }}
+                    />
 
-                <Col md={2}>{product.name}</Col>
-                <Col md={2}>{formatPrice(product.price * product.qty)}</Col>
-                <Col md={2}>
-                  <Rating rating={product.rating} />
-                </Col>
+                    <Col md={2}>{product.name}</Col>
+                    <Col md={2}>{formatPrice(product.price * product.qty)}</Col>
+                    <Col md={2}>
+                      <Rating rating={product.rating} />
+                    </Col>
 
-                <Col>
-                  <Form.Select
-                    as="select"
-                    value={product.qty}
-                    onChange={e =>
-                      dispatch({
-                        type: 'CHANGE_CART_QTY',
-                        payload: { _id: product._id, qty: e.target.value }
-                      })
-                    }
-                  >
-                    {[...Array(product.inStock).keys()].map(x => (
-                      <option key={x + 1}>{x + 1}</option>
-                    ))}
-                  </Form.Select>
-                </Col>
-                <Col md={2}>
-                  <Button
-                    variant="light"
-                    onClick={() =>
-                      dispatch({ type: 'REMOVE_FROM_CART', payload: product })
-                    }
-                  >
-                    <AiFillDelete fontSize="20px" />
-                  </Button>
-                </Col>
-              </Row>
-            </ListGroup.Item>
-          ))}
-          <Button
-            className="checkout-btn"
-            as={Link}
-            to="/checkout"
-            state={{ total: total }}
-          >
-            To Checkout
-          </Button>
-        </ListGroup>
-      </div>
-      <div className="filters summary">
-        <span className="title">Items: {cart.length}</span>
-        {cart.map(product => (
-          <ul key={product._id}>
-            <li>
-              {product.name} <small>x{product.qty}</small>
-            </li>
-          </ul>
-        ))}
-        <span style={{ fontWeight: 700, fontSize: 20 }}>
-          Total: {formatPrice(total)}
-        </span>
-      </div>
+                    <Col>
+                      <Form.Select
+                        as="select"
+                        value={product.qty}
+                        onChange={e =>
+                          dispatch({
+                            type: 'CHANGE_CART_QTY',
+                            payload: { _id: product._id, qty: e.target.value }
+                          })
+                        }
+                      >
+                        {[...Array(product.inStock).keys()].map(x => (
+                          <option key={x + 1}>{x + 1}</option>
+                        ))}
+                      </Form.Select>
+                    </Col>
+                    <Col md={2}>
+                      <Button
+                        variant="light"
+                        onClick={() =>
+                          dispatch({
+                            type: 'REMOVE_FROM_CART',
+                            payload: product
+                          })
+                        }
+                      >
+                        <AiFillDelete fontSize="20px" />
+                      </Button>
+                    </Col>
+                  </Row>
+                </ListGroup.Item>
+              ))}
+              <Button
+                className="checkout-btn"
+                as={Link}
+                to="/checkout"
+                state={{ total: total }}
+              >
+                To Checkout
+              </Button>
+            </ListGroup>
+          </div>
+
+          <div className="filters summary">
+            <span className="title">Items: {cart.length}</span>
+            {cart.map(product => (
+              <ul key={product._id}>
+                <li>
+                  {product.name} <small>x{product.qty}</small>
+                </li>
+              </ul>
+            ))}
+            <span style={{ fontWeight: 700, fontSize: 20 }}>
+              <hr></hr>
+              Total: {formatPrice(total)}
+            </span>
+          </div>
+        </>
+      )}
     </div>
   );
 };

@@ -6,6 +6,10 @@ import { Helmet } from 'react-helmet-async';
 import CarrouselImg1 from '../../assets/CarrouselImg1.jpg';
 import CarrouselImg2 from '../../assets/CarrouselImg2.jpg';
 import CarrouselImg3 from '../../assets/CarrouselImg3.jpg';
+import { BsFillPeopleFill } from 'react-icons/bs';
+import { RiCustomerService2Fill } from 'react-icons/ri';
+import AMDProcessor from '../../assets/amd_banner.png';
+import AppleRepair from '../../assets/apple-repair.png';
 
 const HomePage = () => {
   return (
@@ -81,22 +85,32 @@ const HomePage = () => {
 
       <section className="intro-section">
         <div>
-          <h2>About us:</h2>
+          <BsFillPeopleFill />
+          <h2>About us</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus,
-            ratione nisi. Maiores fugit at assumenda voluptatibus voluptates!
-            Voluptatum, facilis. Ipsa officiis nam eos, facilis corporis totam
-            fuga optio minima sed!
+            Since 2015, ezPC has been one of the leading manufacturers of
+            computer systems worldwide. In the heart of Germany, more than 100
+            employees produce over 8,000 perfectly set up PC and notebook
+            systems per month. From day one until today, we have been working
+            according to our mission statement: We love your PC!
           </p>
         </div>
         <div>
-          <h2>Something will go here</h2>
+          <RiCustomerService2Fill />
+          <h2>TOP SERVICE!</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            reiciendis at, incidunt optio placeat ea saepe fuga illo voluptatem
-            minima velit animi cumque ipsum dolore, veritatis quasi.
-            Voluptatibus, minima provident?
+            We will be happy to advise you by phone or email! Our multilingual
+            sales team is composed of experts with years of experience and tons
+            of satisfied customers! We are looking forward to chatting with you!
           </p>
+        </div>
+      </section>
+      <section className="banner">
+        <div>
+          <img src={AMDProcessor} alt="AMD Processors" />
+        </div>
+        <div>
+          <img src={AppleRepair} alt="Apple repair" />
         </div>
       </section>
     </>

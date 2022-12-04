@@ -37,9 +37,8 @@
   display: flex;
   justify-content: center;
   text-align: center;
-  margin-top: 1%;
   background-image: url('../../assets/gray-wall-background.webp');
-  height: 80vh;
+  height: 60vh;
   p {
     text-align: left;
   }
@@ -48,27 +47,32 @@
     margin: 2%;
   }
 }
-.intro-section h2,
-p {
-  @media (max-width: 700px) {
-    display: block;
-  }
-}
+// .intro-section h2,
+// p {
+//   @media (max-width: 700px) {
+//     display: block;
+//   }
+// }
 
 .carousel-text {
   text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1),
     0px 18px 23px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 700px) {
+    display: block !important;
+  }
 }
 
 .banner {
   display: flex;
   justify-content: center;
+  border: 2px solid red;
   div {
     width: 45%;
   }
-  margin: 0;
 }
 
 .banner img {
   object-fit: scale-down;
+  width: 50%;
 }

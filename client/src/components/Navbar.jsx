@@ -88,7 +88,12 @@ const Header = () => {
             </NavbarLinkContainer>
           </LeftContainer>
           <RightContainer>
-            <Link to="/">
+            <Link
+              to="/"
+              onClick={() => {
+                setExtendNavbar(curr => !curr);
+              }}
+            >
               <Logo src={LogoImg}></Logo>
             </Link>
           </RightContainer>

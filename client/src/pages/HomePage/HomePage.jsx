@@ -97,7 +97,7 @@ const HomePage = () => {
         </div>
         <div>
           <RiCustomerService2Fill />
-          <h2>TOP SERVICE!</h2>
+          <h2>Top service</h2>
           <p>
             We will be happy to advise you by phone or email! Our multilingual
             sales team is composed of experts with years of experience and tons
@@ -106,12 +106,9 @@ const HomePage = () => {
         </div>
       </section>
       <section className="banner">
-        <div>
-          <img src={AMDProcessor} alt="AMD Processors" />
-        </div>
-        <div>
-          <img src={AppleRepair} alt="Apple repair" />
-        </div>
+        <img src={AMDProcessor} alt="AMD Processors" />
+
+        <img src={AppleRepair} alt="Apple repair" />
       </section>
     </>
   );

@@ -30,11 +30,17 @@ const CartPage = () => {
       <br></br>
       {!cart.length ? (
         <>
-          <h2>Your cart is empty</h2>
-          <br></br>
-          <button>
-            <Link to="/products">See products</Link>
-          </button>
+          <div>
+            <h1 style={{ fontSize: '3em' }}>Your cart is empty!</h1>
+          </div>
+          <div style={{ margin: '10% 0 10% 0' }}>
+            <br></br>
+            <button>
+              <Link style={{ fontSize: '3em' }} to="/products">
+                See products
+              </Link>
+            </button>
+          </div>
         </>
       ) : (
         <>

@@ -46,8 +46,8 @@ const Header = () => {
                   <NavbarLink to="/products">Products</NavbarLink>
                   <NavbarLink to="/">{user.firstName}'s Profile</NavbarLink>
                   <NavbarLink to="/cart">
-                    <FaShoppingCart color="white" fontSize="25px" />
                     <NavBadge>{cart.length}</NavBadge>
+                    <FaShoppingCart color="white" fontSize="25px" />
                   </NavbarLink>
                   <NavbarLink to="/">
                     <IconContext.Provider

@@ -7,12 +7,15 @@ import CartContext from './context/CartContext';
 import './styles/index.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { HelmetProvider } from 'react-helmet-async';
+import { ChakraProvider } from '@chakra-ui/react';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <HelmetProvider>
     <CartContext>
-      <App />
+      <ChakraProvider>
+        <App />
+      </ChakraProvider>
     </CartContext>
   </HelmetProvider>
 );
